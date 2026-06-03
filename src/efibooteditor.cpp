@@ -438,16 +438,6 @@ uint64_t EFIBootEditor::getOsIndications() const
     return indications;
 }
 
-void EFIBootEditor::closeEvent(QCloseEvent *event)
-{
-    event->ignore();
-    confirmation->setText(tr("Are you sure you want to quit?"));
-    confirmation->setStandardButtons(QMessageBox::Yes | QMessageBox::No);
-    confirmation->exec();
-    if(confirmation->clickedButton() == confirmation->button(QMessageBox::Yes))
-        event->accept();
-}
-
 void EFIBootEditor::showError(const QString &message, const QString &details)
 {
     hideProgressBar();
