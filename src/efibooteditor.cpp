@@ -217,12 +217,7 @@ void EFIBootEditor::switchBootEntryEditor(int index)
 
 void EFIBootEditor::save()
 {
-    showConfirmation(
-        tr("Are you sure you want to save?<br/>Your EFI configuration will be overwritten!"),
-        QMessageBox::Yes | QMessageBox::Cancel,
-        QMessageBox::Yes,
-        &data,
-        &EFIBootData::save);
+    data.save();
 }
 
 void EFIBootEditor::import_()
