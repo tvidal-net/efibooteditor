@@ -94,6 +94,8 @@ private:
 
     uint64_t getOsIndications() const;
 
+    void closeEvent(QCloseEvent *event) override;
+
     template <class Receiver, typename Slot>
     void showConfirmation(const QString &message, const QMessageBox::StandardButtons &buttons, const QMessageBox::StandardButton &confirmation_button, Receiver confirmation_context, Slot confirmation_slot);
 

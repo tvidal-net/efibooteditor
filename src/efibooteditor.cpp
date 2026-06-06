@@ -438,6 +438,13 @@ uint64_t EFIBootEditor::getOsIndications() const
     return indications;
 }
 
+void EFIBootEditor::closeEvent(QCloseEvent *event)
+{
+    if(!undo_stack.isClean())
+        data.save();
+    event->accept();
+}
+
 void EFIBootEditor::showError(const QString &message, const QString &details)
 {
     hideProgressBar();
